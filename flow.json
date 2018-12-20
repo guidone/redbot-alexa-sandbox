@@ -1,1 +1,881 @@
-[]
+[
+    {
+        "id": "abae0f79.e316c",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "950a4006.a6862",
+        "type": "chatbot-alexa-node",
+        "z": "",
+        "botname": "Test",
+        "usernames": "",
+        "store": "",
+        "log": "",
+        "debug": false
+    },
+    {
+        "id": "85c4feed.79bc4",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "ad7649ac.f94368",
+        "type": "chatbot-rules",
+        "z": "abae0f79.e316c",
+        "name": "Dialog state",
+        "rules": [
+            {
+                "type": "dialogState",
+                "state": "started"
+            },
+            {
+                "type": "dialogState",
+                "state": "in_progress"
+            },
+            {
+                "type": "dialogState",
+                "state": "completed"
+            }
+        ],
+        "outputs": 3,
+        "x": 850,
+        "y": 320,
+        "wires": [
+            [
+                "58408e63.2df"
+            ],
+            [
+                "58408e63.2df"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d3b942ad.3b81",
+        "type": "chatbot-alexa-send",
+        "z": "abae0f79.e316c",
+        "bot": "950a4006.a6862",
+        "botProduction": "",
+        "track": false,
+        "passThrough": false,
+        "outputs": 0,
+        "x": 1000,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "43919b5d.53f2a4",
+        "type": "chatbot-context",
+        "z": "abae0f79.e316c",
+        "command": "intent",
+        "fieldValue": "",
+        "fieldType": "str",
+        "fieldName": "",
+        "x": 680,
+        "y": 320,
+        "wires": [
+            [
+                "ad7649ac.f94368"
+            ]
+        ]
+    },
+    {
+        "id": "229c7c6.4622b84",
+        "type": "chatbot-alexa-speech",
+        "z": "abae0f79.e316c",
+        "speechType": "ssml",
+        "text": "",
+        "ssml": "<speak>\n    Va bene \n    <amazon:effect name=\"whispered\">cominciamo</amazon:effect>\n</speak>",
+        "playBehavior": "enqueue",
+        "reprompt": true,
+        "x": 740,
+        "y": 260,
+        "wires": [
+            [
+                "3211755a.d2b98a"
+            ]
+        ]
+    },
+    {
+        "id": "326a892a.b35be6",
+        "type": "chatbot-alexa-speech",
+        "z": "abae0f79.e316c",
+        "name": "",
+        "speechType": "ssml",
+        "text": "",
+        "ssml": "<speak>\n    Ok ti ciappino in {{posto}} di {{colore}}\n</speak>",
+        "playBehavior": "enqueue",
+        "reprompt": false,
+        "x": 740,
+        "y": 660,
+        "wires": [
+            [
+                "d3b942ad.3b81"
+            ]
+        ]
+    },
+    {
+        "id": "6d70dca7.5641d4",
+        "type": "chatbot-rules",
+        "z": "abae0f79.e316c",
+        "name": "Is intent",
+        "rules": [
+            {
+                "type": "messageEvent",
+                "event": "start"
+            },
+            {
+                "type": "isIntentName",
+                "intent": "camera"
+            },
+            {
+                "type": "messageType",
+                "messageType": "broadcast"
+            }
+        ],
+        "outputs": 3,
+        "x": 520,
+        "y": 320,
+        "wires": [
+            [
+                "229c7c6.4622b84"
+            ],
+            [
+                "43919b5d.53f2a4"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "58408e63.2df",
+        "type": "chatbot-rules",
+        "z": "abae0f79.e316c",
+        "name": "Cofirmation",
+        "rules": [
+            {
+                "type": "hasNotVariable",
+                "variable": "room"
+            },
+            {
+                "type": "isSlotConfirmationStatus",
+                "confirmationStatus": "denied",
+                "slot": "room"
+            },
+            {
+                "type": "isSlotConfirmationStatus",
+                "confirmationStatus": "none",
+                "slot": "room"
+            },
+            {
+                "type": "hasNotVariable",
+                "variable": "color"
+            },
+            {
+                "type": "isSlotConfirmationStatus",
+                "confirmationStatus": "denied",
+                "slot": "color"
+            },
+            {
+                "type": "isSlotConfirmationStatus",
+                "confirmationStatus": "none",
+                "slot": "color"
+            },
+            {
+                "type": "isIntentConfirmationStatus",
+                "confirmationStatus": "none"
+            },
+            {
+                "type": "isIntentConfirmationStatus",
+                "confirmationStatus": "confirmed"
+            }
+        ],
+        "outputs": 8,
+        "x": 310,
+        "y": 500,
+        "wires": [
+            [
+                "ffc78cc5.d6ce2"
+            ],
+            [
+                "ffc78cc5.d6ce2"
+            ],
+            [
+                "161116e4.7bbfa9"
+            ],
+            [
+                "c43d7d27.e4196"
+            ],
+            [
+                "c43d7d27.e4196"
+            ],
+            [
+                "a736156e.177838"
+            ],
+            [
+                "e062c184.19aa5"
+            ],
+            [
+                "b0d863c7.6cfa9"
+            ]
+        ]
+    },
+    {
+        "id": "2cfc8171.ddf76e",
+        "type": "chatbot-alexa-speech",
+        "z": "abae0f79.e316c",
+        "speechType": "ssml",
+        "text": "",
+        "ssml": "<speak>\n    Mi vuoi dire in che posto?\n</speak>",
+        "playBehavior": "enqueue",
+        "reprompt": false,
+        "x": 740,
+        "y": 460,
+        "wires": [
+            [
+                "d3b942ad.3b81"
+            ]
+        ]
+    },
+    {
+        "id": "e7e735ee.1eac78",
+        "type": "chatbot-alexa-speech",
+        "z": "abae0f79.e316c",
+        "speechType": "ssml",
+        "text": "",
+        "ssml": "<speak>\n    Ho capito ma quale colore?\n</speak>",
+        "playBehavior": "enqueue",
+        "reprompt": false,
+        "x": 740,
+        "y": 540,
+        "wires": [
+            [
+                "d3b942ad.3b81"
+            ]
+        ]
+    },
+    {
+        "id": "3211755a.d2b98a",
+        "type": "chatbot-alexa-send",
+        "z": "abae0f79.e316c",
+        "bot": "950a4006.a6862",
+        "botProduction": "",
+        "track": false,
+        "passThrough": false,
+        "outputs": 0,
+        "x": 1000,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "bc237ab.a456888",
+        "type": "chatbot-alexa-speech",
+        "z": "abae0f79.e316c",
+        "speechType": "ssml",
+        "text": "",
+        "ssml": "<speak>\n    Ok te lo accendo in {{posto}}, corretto?\n</speak>",
+        "playBehavior": "enqueue",
+        "reprompt": false,
+        "x": 740,
+        "y": 500,
+        "wires": [
+            [
+                "d3b942ad.3b81"
+            ]
+        ]
+    },
+    {
+        "id": "2a75ddf9.9bd342",
+        "type": "chatbot-alexa-speech",
+        "z": "abae0f79.e316c",
+        "speechType": "ssml",
+        "text": "",
+        "ssml": "<speak>\n    Ok te lo accendo di colore {{colore}}, corretto?\n</speak>",
+        "playBehavior": "enqueue",
+        "reprompt": false,
+        "x": 740,
+        "y": 580,
+        "wires": [
+            [
+                "d3b942ad.3b81"
+            ]
+        ]
+    },
+    {
+        "id": "4aa57b6f.bfef44",
+        "type": "chatbot-alexa-speech",
+        "z": "abae0f79.e316c",
+        "speechType": "ssml",
+        "text": "",
+        "ssml": "<speak>\n    Quindi in {{posto}} e di colore {{colore}}, la accendiamo?\n</speak>",
+        "playBehavior": "enqueue",
+        "reprompt": false,
+        "x": 740,
+        "y": 620,
+        "wires": [
+            [
+                "d3b942ad.3b81"
+            ]
+        ]
+    },
+    {
+        "id": "9f48e1a8.d62af",
+        "type": "chatbot-alexa-speech",
+        "z": "abae0f79.e316c",
+        "speechType": "ssml",
+        "text": "",
+        "ssml": "<speak>\n    Ok ti ciappino in {{posto}} di {{colore}}\n</speak>",
+        "playBehavior": "enqueue",
+        "reprompt": false,
+        "x": 400,
+        "y": 1440,
+        "wires": [
+            [
+                "b6d97695.9c68b8"
+            ]
+        ]
+    },
+    {
+        "id": "b6d97695.9c68b8",
+        "type": "chatbot-alexa-card",
+        "z": "abae0f79.e316c",
+        "cardType": "simple",
+        "title": "Ok",
+        "text": "",
+        "smallImage": "",
+        "largeImage": "",
+        "x": 570,
+        "y": 1440,
+        "wires": [
+            [
+                "a5fb92dc.fa87e"
+            ]
+        ]
+    },
+    {
+        "id": "a5fb92dc.fa87e",
+        "type": "chatbot-alexa-send",
+        "z": "abae0f79.e316c",
+        "bot": "950a4006.a6862",
+        "botProduction": "",
+        "track": false,
+        "passThrough": false,
+        "outputs": 0,
+        "x": 740,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "252dab63.2a3654",
+        "type": "chatbot-rules",
+        "z": "abae0f79.e316c",
+        "name": "Is intent",
+        "rules": [
+            {
+                "type": "messageEvent",
+                "event": "start"
+            },
+            {
+                "type": "isIntentName",
+                "intent": "camera"
+            }
+        ],
+        "outputs": 2,
+        "x": 260,
+        "y": 1500,
+        "wires": [
+            [
+                "9f48e1a8.d62af"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6b787c5b.9d3e54",
+        "type": "chatbot-alexa-speech",
+        "z": "abae0f79.e316c",
+        "name": "First try",
+        "speechType": "ssml",
+        "text": "",
+        "ssml": "<speak>\n    Ok ti ciappino in {{posto}} di {{colore}}\n</speak>",
+        "playBehavior": "enqueue",
+        "reprompt": false,
+        "x": 300,
+        "y": 1580,
+        "wires": [
+            [
+                "666a9dd7.a20544"
+            ]
+        ]
+    },
+    {
+        "id": "666a9dd7.a20544",
+        "type": "chatbot-alexa-speech",
+        "z": "abae0f79.e316c",
+        "name": "Second try",
+        "speechType": "ssml",
+        "text": "",
+        "ssml": "<speak>\n    Ok ti ciappino in {{posto}} di {{colore}}\n</speak>",
+        "playBehavior": "enqueue",
+        "reprompt": true,
+        "x": 510,
+        "y": 1580,
+        "wires": [
+            [
+                "9263abbd.bb01a8"
+            ]
+        ]
+    },
+    {
+        "id": "9263abbd.bb01a8",
+        "type": "chatbot-alexa-send",
+        "z": "abae0f79.e316c",
+        "bot": "950a4006.a6862",
+        "botProduction": "",
+        "track": false,
+        "passThrough": false,
+        "outputs": 0,
+        "x": 740,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "2101cbe7.7a8fa4",
+        "type": "chatbot-support-table",
+        "z": "abae0f79.e316c",
+        "x": 460,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "5907a640.1cd958",
+        "type": "inject",
+        "z": "abae0f79.e316c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 280,
+        "y": 80,
+        "wires": [
+            [
+                "2101cbe7.7a8fa4"
+            ]
+        ]
+    },
+    {
+        "id": "ffc78cc5.d6ce2",
+        "type": "chatbot-alexa-directive",
+        "z": "abae0f79.e316c",
+        "directiveType": "Dialog.ElicitSlot",
+        "slot": "room",
+        "x": 540,
+        "y": 460,
+        "wires": [
+            [
+                "2cfc8171.ddf76e"
+            ]
+        ]
+    },
+    {
+        "id": "161116e4.7bbfa9",
+        "type": "chatbot-alexa-directive",
+        "z": "abae0f79.e316c",
+        "directiveType": "Dialog.ConfirmSlot",
+        "slot": "room",
+        "x": 540,
+        "y": 500,
+        "wires": [
+            [
+                "bc237ab.a456888"
+            ]
+        ]
+    },
+    {
+        "id": "b6ee0d0b.f6cbe",
+        "type": "chatbot-rules",
+        "z": "abae0f79.e316c",
+        "name": "Is intent",
+        "rules": [
+            {
+                "type": "messageEvent",
+                "event": "start"
+            },
+            {
+                "type": "isIntentName",
+                "intent": "switch_lights"
+            },
+            {
+                "type": "catchAll"
+            }
+        ],
+        "outputs": 3,
+        "x": 440,
+        "y": 1060,
+        "wires": [
+            [
+                "aab043fa.d4f02"
+            ],
+            [
+                "b02119fc.659e18"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b02119fc.659e18",
+        "type": "chatbot-context",
+        "z": "abae0f79.e316c",
+        "command": "intent",
+        "fieldValue": "",
+        "fieldType": "str",
+        "fieldName": "",
+        "x": 600,
+        "y": 1060,
+        "wires": [
+            [
+                "3f747a79.5c1786"
+            ]
+        ]
+    },
+    {
+        "id": "3f747a79.5c1786",
+        "type": "chatbot-rules",
+        "z": "abae0f79.e316c",
+        "name": "Dialog state",
+        "rules": [
+            {
+                "type": "dialogState",
+                "state": "started"
+            },
+            {
+                "type": "dialogState",
+                "state": "in_progress"
+            },
+            {
+                "type": "dialogState",
+                "state": "completed"
+            }
+        ],
+        "outputs": 3,
+        "x": 770,
+        "y": 1060,
+        "wires": [
+            [
+                "d34c4bbe.6c7bc8"
+            ],
+            [
+                "d34c4bbe.6c7bc8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d34c4bbe.6c7bc8",
+        "type": "chatbot-rules",
+        "z": "abae0f79.e316c",
+        "name": "Confirmation",
+        "rules": [
+            {
+                "type": "isIntentConfirmationStatus",
+                "confirmationStatus": "confirmed"
+            },
+            {
+                "type": "catchAll"
+            }
+        ],
+        "outputs": 2,
+        "x": 250,
+        "y": 1180,
+        "wires": [
+            [
+                "61515b7a.2ec5e4"
+            ],
+            [
+                "717d1768.bc2d88"
+            ]
+        ]
+    },
+    {
+        "id": "717d1768.bc2d88",
+        "type": "chatbot-alexa-directive",
+        "z": "abae0f79.e316c",
+        "directiveType": "Dialog.Delegate",
+        "slot": "posto",
+        "x": 440,
+        "y": 1200,
+        "wires": [
+            [
+                "330d55da.e2984a"
+            ]
+        ]
+    },
+    {
+        "id": "330d55da.e2984a",
+        "type": "chatbot-alexa-send",
+        "z": "abae0f79.e316c",
+        "bot": "950a4006.a6862",
+        "botProduction": "",
+        "track": false,
+        "passThrough": false,
+        "outputs": 0,
+        "x": 820,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "b627a667.748238",
+        "type": "chatbot-alexa-speech",
+        "z": "abae0f79.e316c",
+        "name": "Complete",
+        "speechType": "ssml",
+        "text": "",
+        "ssml": "<speak>\n    Ok, switched on in {{room}} with color {{color}}\n</speak>",
+        "playBehavior": "enqueue",
+        "reprompt": false,
+        "x": 620,
+        "y": 1160,
+        "wires": [
+            [
+                "330d55da.e2984a"
+            ]
+        ]
+    },
+    {
+        "id": "830e1d05.6b14f",
+        "type": "chatbot-alexa-receive",
+        "z": "abae0f79.e316c",
+        "bot": "950a4006.a6862",
+        "botProduction": "",
+        "x": 260,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ceb42117.c2fb2",
+        "type": "chatbot-alexa-send",
+        "z": "abae0f79.e316c",
+        "bot": "950a4006.a6862",
+        "botProduction": "",
+        "track": false,
+        "passThrough": false,
+        "outputs": 0,
+        "x": 800,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "aab043fa.d4f02",
+        "type": "chatbot-alexa-speech",
+        "z": "abae0f79.e316c",
+        "name": "Ok, started",
+        "speechType": "plainText",
+        "text": "Ok, started",
+        "ssml": "",
+        "playBehavior": "enqueue",
+        "reprompt": false,
+        "x": 610,
+        "y": 1000,
+        "wires": [
+            [
+                "ceb42117.c2fb2"
+            ]
+        ]
+    },
+    {
+        "id": "c43d7d27.e4196",
+        "type": "chatbot-alexa-directive",
+        "z": "abae0f79.e316c",
+        "directiveType": "Dialog.ElicitSlot",
+        "slot": "color",
+        "x": 540,
+        "y": 540,
+        "wires": [
+            [
+                "e7e735ee.1eac78"
+            ]
+        ]
+    },
+    {
+        "id": "a736156e.177838",
+        "type": "chatbot-alexa-directive",
+        "z": "abae0f79.e316c",
+        "directiveType": "Dialog.ConfirmSlot",
+        "slot": "color",
+        "x": 540,
+        "y": 580,
+        "wires": [
+            [
+                "2a75ddf9.9bd342"
+            ]
+        ]
+    },
+    {
+        "id": "e062c184.19aa5",
+        "type": "chatbot-alexa-directive",
+        "z": "abae0f79.e316c",
+        "directiveType": "Dialog.ConfirmIntent",
+        "slot": "color",
+        "x": 540,
+        "y": 620,
+        "wires": [
+            [
+                "4aa57b6f.bfef44"
+            ]
+        ]
+    },
+    {
+        "id": "61515b7a.2ec5e4",
+        "type": "function",
+        "z": "abae0f79.e316c",
+        "name": "Do Something",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 440,
+        "y": 1160,
+        "wires": [
+            [
+                "b627a667.748238"
+            ]
+        ]
+    },
+    {
+        "id": "7ca1fedd.2575c",
+        "type": "chatbot-alexa-receive",
+        "z": "abae0f79.e316c",
+        "bot": "950a4006.a6862",
+        "botProduction": "",
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "6d70dca7.5641d4"
+            ]
+        ]
+    },
+    {
+        "id": "b89243f.40614c",
+        "type": "comment",
+        "z": "abae0f79.e316c",
+        "name": "Multi turn dialog (Connect Alexa node to make it work)",
+        "info": "",
+        "x": 380,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "b0d863c7.6cfa9",
+        "type": "function",
+        "z": "abae0f79.e316c",
+        "name": "Do Something",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 540,
+        "y": 660,
+        "wires": [
+            [
+                "326a892a.b35be6"
+            ]
+        ]
+    }
+]
