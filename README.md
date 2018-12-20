@@ -5,7 +5,7 @@ Generic Facebook playground for [RedBot](https://github.com/guidone/node-red-con
 
 To install create a new project in **Node-RED** and clone the repository:
 
-![Clone repository](https://github.com/guidone/redbot-facebook-sandbox/blob/master/clone_sandbox.png)
+![Clone repository](https://github.com/guidone/redbot-alexa-sandbox/blob/master/clone_sandbox.png)
 
 ### Useful links
 
