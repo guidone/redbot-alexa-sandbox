@@ -9,7 +9,7 @@ To install create a new project in **Node-RED** and clone the repository:
 
 ### Useful links
 
-* [Generale JSON reference](https://developer.amazon.com/docs/custom-skills/request-and-response-json-reference.html](https://developer.amazon.com/docs/custom-skills/request-and-response-json-reference.html)
+* [Generale JSON reference](https://developer.amazon.com/docs/custom-skills/request-and-response-json-reference.html)
 
 * Type of [requests](https://developer.amazon.com/docs/custom-skills/request-types-reference.html)
 
