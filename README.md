@@ -1,24 +1,25 @@
-AlexaPlayground
+Alexa Playground
 ===============
 
-### Documentation
+Generic Facebook playground for [RedBot](https://github.com/guidone/node-red-contrib-chatbot). It's a generic bot used for testing.
 
-Generale JSON reference
+To install create a new project in **Node-RED** and clone the repository:
 
-[https://developer.amazon.com/docs/custom-skills/request-and-response-json-reference.html](https://developer.amazon.com/docs/custom-skills/request-and-response-json-reference.html)
+![Clone repository](https://github.com/guidone/redbot-facebook-sandbox/blob/master/clone_sandbox.png)
 
-Type of [requests](https://developer.amazon.com/docs/custom-skills/request-types-reference.html)
+### Useful links
 
-Multi turn requests
-https://developer.amazon.com/docs/custom-skills/dialog-interface-reference.html
+* [Generale JSON reference](https://developer.amazon.com/docs/custom-skills/request-and-response-json-reference.html](https://developer.amazon.com/docs/custom-skills/request-and-response-json-reference.html)
+
+* Type of [requests](https://developer.amazon.com/docs/custom-skills/request-types-reference.html)
+
+* [Multi turn requests](https://developer.amazon.com/docs/custom-skills/dialog-interface-reference.html)
 
 
-Tag disponibili per la voce https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html
+* [Speech Synthesis Markup Language](https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html)
 
-Basic response format
-https://developer.amazon.com/docs/custom-skills/request-and-response-json-reference.html#response-format
+* [Basic response format](https://developer.amazon.com/docs/custom-skills/request-and-response-json-reference.html#response-format)
 
-Per intent che non richiedono l'invocazione
-https://developer.amazon.com/docs/custom-skills/understand-name-free-interaction-for-custom-skills.html
+* [Intent without invocation](https://developer.amazon.com/docs/custom-skills/understand-name-free-interaction-for-custom-skills.html)
 
-Sound bank (suoni pre-impostati) https://developer.amazon.com/docs/custom-skills/home-sounds.html
+* [Sound bank](https://developer.amazon.com/docs/custom-skills/home-sounds.html)
